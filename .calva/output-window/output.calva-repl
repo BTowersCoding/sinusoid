@@ -37,3 +37,66 @@ nil
 clj꞉notebooks.sinusoid꞉> 
 #:nextjournal{:value "\\cos^{-1}\\left(\\dfrac{3}{7}\\right)=64.62^\\circ", :viewer :latex}
 clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/ratio
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value
+              "\\begin{aligned}7\\cos(5x)+9&=12\\\\\\\\ 7\\cos(5x)&=3\\\\\\\\ \\cos(5x)&=\\dfrac{}{}\\end{aligned}",
+              :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:14).
+; Unable to resolve symbol: amplitude in this context
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:14).
+; Unable to resolve symbol: amplitude in this context
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond-> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond-> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{}{}"
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond->> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond->> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond-> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond->> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+; Unexpected error (AssertionError) macroexpanding cond->> at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:35:1).
+; Assert failed: (even? (count clauses))
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/ratio
+clj꞉notebooks.sinusoid꞉> 
+8.55
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{8}{1}"
+clj꞉notebooks.sinusoid꞉> 
