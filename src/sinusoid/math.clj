@@ -48,11 +48,15 @@
       n))
 
 (def fractions-of-pi
-  (into {}
-        (reverse (map (juxt (fn [n] (/ Math/PI n))
-                            (fn [n]
-                              (str "\\dfrac{\\pi}{" n "}")))
-                      (range 2 1000)))))
+  (let [simple-ratios (into {}
+                            (reverse (map (juxt (fn [n] (/ Math/PI n))
+                                                (fn [n]
+                                                  (str "\\dfrac{\\pi}{" n "}")))
+                                          (range 2 1000))))]
+    (assoc simple-ratios Math/PI "\\pi"))
+  )
+
+(get fractions-of-pi Math/PI)
 
 (comment
   ((juxt numerator denominator)
