@@ -21,135 +21,142 @@
 (def pi Math/PI)
 
 (defn deg [rad]
-  (/ (Math/round (* 100 (/ rad (/ pi 180)))) 100.0))
+  (round (/ rad (/ pi 180)) 100))
 
-(def amplitude 14)
-(def trig-fn "\\sin")
-(def period 20)
-(def x-shift -3)
-(def equals 2)
+(def sinusoid
+  {:amplitude 14
+   :trig-fn "\\sin"
+   :period 20
+   :x-shift -3
+   :val 2})
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(clerk/tex (str amplitude trig-fn "(" period "x)+" x-shift "=" equals ))
+(let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
+  (clerk/tex (str amplitude trig-fn "(" period "x)" x-shift "=" val)))
 
 ;; Trig identities
 ^{:nextjournal.clerk/visibility #{:hide}}
 (clerk/tex 
- (case trig-fn
+ (case (:trig-fn sinusoid)
    "\\cos" "\\cos(\\theta)=\\cos(-\\theta)"
    "\\sin" "\\sin(\\theta)=\\sin(180\\degree-\\theta)"))
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (clerk/tex
- (case trig-fn
+ (case (:trig-fn sinusoid)
    "\\cos" "\\cos(\\theta)=\\cos(\\theta+360\\degree)"
    "\\sin" "\\sin(\\theta)=\\sin(\\theta+360\\degree)"))
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (defn inverse-trig-fn [n]
-  (case trig-fn
+  (case (:trig-fn sinusoid)
     "\\cos" (Math/acos n)
     "\\sin" (Math/asin n)))
 
 ;; Isolate the sinusoidal function
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(clerk/tex
- (str "\\begin{aligned}"
-      amplitude trig-fn "(" period "x)+" x-shift "&=" equals "\\\\\\\\ "
-      amplitude trig-fn "(" period "x)&=" (- equals x-shift) "\\\\\\\\ "
-      trig-fn "(" period "x)&=" (ratio (/ (- equals x-shift) amplitude))
-      "\\end{aligned}"))
+(let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
+  (clerk/tex
+   (str "\\begin{aligned}"
+        amplitude trig-fn "(" period "x)+" x-shift "&=" val "\\\\\\\\ "
+        amplitude trig-fn "(" period "x)&=" (- val x-shift) "\\\\\\\\ "
+        trig-fn "(" period "x)&=" (ratio (/ (- val x-shift) amplitude))
+        "\\end{aligned}")))
 
 ;; Use the inverse trig function to find one value of `(* period x)`
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(clerk/tex
- (str trig-fn "^{-1}\\left(" (ratio (/ (- equals x-shift) amplitude)) "\\right)="
-      (case mode
-        :deg             
-        (str (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) "^\\circ")
-        :rad  (round (inverse-trig-fn (/ (- equals x-shift) amplitude)) 1000))
-       ))
+(let [{:keys [amplitude trig-fn x-shift val]} sinusoid]
+  (clerk/tex
+   (str trig-fn "^{-1}\\left(" (ratio (/ (- val x-shift) amplitude)) "\\right)="
+        (case mode
+          :deg             
+          (str (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
+          :rad  (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000)))))
 
 ;; Now we can use the first identity to find the second solution within the interval:
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(clerk/tex
- (case mode 
-   :deg
-   (case trig-fn
-     "\\cos" (str "-" (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) " ^\\circ")
-     "\\sin" (str "-180^\\circ-" (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) " ^\\circ="
-                  (- -180 (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))))))
-   :rad  
-   (case trig-fn
-     "\\cos" (str "-" (inverse-trig-fn (/ (- equals x-shift) amplitude)))
-     "\\sin" (str "\\pi-" (round (inverse-trig-fn (/ (- equals x-shift) amplitude)) 1000) "="
-                 (round (- pi (inverse-trig-fn (/ (- equals x-shift) amplitude))) 1000)))))
+(let [{:keys [amplitude trig-fn x-shift val]} sinusoid]
+  (clerk/tex
+   (case mode 
+     :deg
+     (case trig-fn
+       "\\cos" (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) " ^\\circ")
+       "\\sin" (str "-180^\\circ-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) " ^\\circ="
+                    (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude))))))
+     :rad  
+     (case trig-fn
+       "\\cos" (str "-" (inverse-trig-fn (/ (- val x-shift) amplitude)))
+       "\\sin" (str "\\pi-" (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000) "="
+                    (round (- pi (inverse-trig-fn (/ (- val x-shift) amplitude))) 1000))))))
 
 ;; Using the second identity, we can find all the solutions to our equation from the two angles we found above. The first solution gives us the following:
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(clerk/tex
- (str "\\begin{aligned}" period "x&="
-      (case mode
-        :deg (str (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) 
-                  "^\\circ+n\\cdot360^\\circ")
-        :rad (str (round (inverse-trig-fn (/ (- equals x-shift) amplitude)) 1000) 
-                  "+n\\cdot2\\pi"))
-      " \\\\\\\\x&=\\dfrac{" 
-      (case mode
-        :deg (str (deg (inverse-trig-fn (/ (- equals x-shift) amplitude)))
-                  "^\\circ+n\\cdot360^\\circ}{")
-        :rad (str (round (inverse-trig-fn (/ (- equals x-shift) amplitude)) 1000)
-                  "+n\\cdot2\\pi}{"))
-      period "}=" 
-      (case mode
-        :deg (str (round (/ (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) period) 100)
-                  "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
-        :rad (str (round (/ (inverse-trig-fn (/ (- equals x-shift) amplitude)) period) 1000)
-                  "+n\\cdot" (/ 360 period)))
-      "\\end{aligned}"))
+(let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
+  (clerk/tex
+   (str "\\begin{aligned}" period "x&="
+        (case mode
+          :deg (str (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) 
+                    "^\\circ+n\\cdot360^\\circ")
+          :rad (str (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000) 
+                    "+n\\cdot2\\pi"))
+        " \\\\\\\\x&=\\dfrac{" 
+        (case mode
+          :deg (str (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
+                    "^\\circ+n\\cdot360^\\circ}{")
+          :rad (str (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000)
+                    "+n\\cdot2\\pi}{"))
+        period "}=" 
+        (case mode
+          :deg (str (round (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) period) 100)
+                    "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
+          :rad (str (round (/ (inverse-trig-fn (/ (- val x-shift) amplitude)) period) 1000)
+                    "+n\\cdot" (/ 360 period)))
+        "\\end{aligned}")))
+
 ;; Similarly, the second solution gives us the following:
 
 ^{:nextjournal.clerk/visibility #{:hide}}
+(let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
 (clerk/tex
  (str "\\begin{aligned}" period "x&="
       (case trig-fn 
         "\\cos"
         (case mode
-          :deg (str "-" (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) "^\\circ")
-          :rad (str "-" (inverse-trig-fn (/ (- equals x-shift) amplitude))) "^\\circ")
+          :deg (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
+          :rad (str "-" (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
         "\\sin"
         (case mode
-          :deg (str (- -180 (deg (inverse-trig-fn (/ (- equals x-shift) amplitude)))) "^\\circ")
-          :rad (str (- -180 (inverse-trig-fn (/ (- equals x-shift) amplitude)))) "^\\circ"))
+          :deg (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ")
+          :rad (str (- -180 (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ"))
       "+n\\cdot360^\\circ \\\\\\\\"
       "x&=\\dfrac{"
       (case trig-fn 
         "\\cos"
-        (str "-" (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) "^\\circ")
+        (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
         "\\sin"
-        (str (- -180 (deg (inverse-trig-fn (/ (- equals x-shift) amplitude)))) "^\\circ"))
+        (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ"))
       "+n\\cdot360^\\circ}{" period "}="
       (case trig-fn
         "\\cos"
         (case mode
           :deg
-          (str "-"  (/ (Math/round (* 100 (/ (deg (inverse-trig-fn (/ (- equals x-shift) amplitude)))
+          (str "-"  (/ (Math/round (* 100 (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
                                              period))) 100.0))
           :rad
-(str "-"  (/ (Math/round (* 100 (/ (inverse-trig-fn (/ (- equals x-shift) amplitude))
+(str "-"  (/ (Math/round (* 100 (/ (inverse-trig-fn (/ (- val x-shift) amplitude))
                                    period))) 100.0)))
         "\\sin"
         (case mode
           :deg
-          (/ (- -180 (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))))
+          (/ (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude))))
              period)
           :rad
-(/ (- -180 (inverse-trig-fn (/ (- equals x-shift) amplitude)))
+(/ (- -180 (inverse-trig-fn (/ (- val x-shift) amplitude)))
    period)))
       "^\\circ+n\\cdot"
       (/ 360 period)
-      "^\\circ\\end{aligned}"))
+      "^\\circ\\end{aligned}")))
