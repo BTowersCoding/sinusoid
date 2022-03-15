@@ -39,6 +39,13 @@
                      (keys (ratios 100))))
       n))
 
+(def fractions-of-pi
+  (into {}
+        (reverse (map (juxt (fn [n] (/ Math/PI n))
+                            (fn [n]
+                              (str "\\dfrac{\\pi}{" n "}")))
+                      (range 2 1000)))))
+
 (comment
   ((juxt numerator denominator)
    (rat (/ 3.0 7))))

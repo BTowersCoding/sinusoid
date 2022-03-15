@@ -611,3 +611,11 @@ clj꞉notebooks.sinusoid꞉> 
 clj꞉notebooks.sinusoid꞉> 
 ; Execution error (ClassCastException) at (REPL:1).
 ; null
+java.lang.Double
+clj꞉notebooks.sinusoid꞉> 
+1.5707963267948966
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{\\pi}{2}"
+clj꞉notebooks.sinusoid꞉> 
