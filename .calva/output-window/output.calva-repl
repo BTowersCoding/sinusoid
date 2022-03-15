@@ -609,3 +609,5 @@ clj꞉notebooks.sinusoid꞉> 
 clj꞉notebooks.sinusoid꞉> 
 0.24
 clj꞉notebooks.sinusoid꞉> 
+; Execution error (ClassCastException) at (REPL:1).
+; null

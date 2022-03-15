@@ -32,7 +32,9 @@
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
-  (clerk/tex (str amplitude trig-fn "(" period "x)" x-shift "=" val)))
+  (clerk/tex (str amplitude trig-fn "(" period "x)" 
+                 (when (pos? x-shift) "+")
+                  x-shift "=" val)))
 
 ;; Trig identities
 ^{:nextjournal.clerk/visibility #{:hide}}
@@ -59,7 +61,9 @@
 (let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
   (clerk/tex
    (str "\\begin{aligned}"
-        amplitude trig-fn "(" period "x)+" x-shift "&=" val "\\\\\\\\ "
+        amplitude trig-fn "(" period "x)"
+       (when (pos? x-shift) "+")
+        x-shift "&=" val "\\\\\\\\ "
         amplitude trig-fn "(" period "x)&=" (- val x-shift) "\\\\\\\\ "
         trig-fn "(" period "x)&=" (ratio (/ (- val x-shift) amplitude))
         "\\end{aligned}")))
@@ -100,21 +104,17 @@
    (str "\\begin{aligned}" period "x&="
         (case mode
           :deg (str (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) 
-                    "^\\circ+n\\cdot360^\\circ")
-          :rad (str (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000) 
-                    "+n\\cdot2\\pi"))
-        " \\\\\\\\x&=\\dfrac{" 
-        (case mode
-          :deg (str (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
-                    "^\\circ+n\\cdot360^\\circ}{")
-          :rad (str (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000)
-                    "+n\\cdot2\\pi}{"))
-        period "}=" 
-        (case mode
-          :deg (str (round (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) period) 100)
+                    "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{" 
+                    (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
+                    "^\\circ+n\\cdot360^\\circ}{" period "}="
+                    (round (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) period) 100)
                     "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
-          :rad (str (round (/ (inverse-trig-fn (/ (- val x-shift) amplitude)) period) 1000)
-                    "+n\\cdot" (/ 360 period)))
+          :rad (str (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000) 
+                    "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
+                    (round (inverse-trig-fn (/ (- val x-shift) amplitude)) 1000)
+                    "+n\\cdot2\\pi}{" period "}="
+                    (round (/ (inverse-trig-fn (/ (- val x-shift) amplitude)) period) 1000)
+                    "+n\\cdot\\dfrac{2\\pi}{" period "}"))
         "\\end{aligned}")))
 
 ;; Similarly, the second solution gives us the following:
@@ -127,36 +127,38 @@
         "\\cos"
         (case mode
           :deg (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
-          :rad (str "-" (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
+          :rad (str "-" (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ\\sin")
         "\\sin"
         (case mode
-          :deg (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ")
-          :rad (str (- -180 (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ"))
-      "+n\\cdot360^\\circ \\\\\\\\"
+          :deg (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) 
+                    "^\\circ+n\\cdot360^\\circ")
+          :rad (str (round (- pi (inverse-trig-fn (/ (- val x-shift) amplitude))) 1000) 
+                    "+n\\cdot2\\pi")))
+      " \\\\\\\\"
       "x&=\\dfrac{"
-      (case trig-fn 
-        "\\cos"
-        (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
-        "\\sin"
-        (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) "^\\circ"))
-      "+n\\cdot360^\\circ}{" period "}="
       (case trig-fn
         "\\cos"
         (case mode
-          :deg
-          (str "-"  (/ (Math/round (* 100 (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
-                                             period))) 100.0))
-          :rad
-(str "-"  (/ (Math/round (* 100 (/ (inverse-trig-fn (/ (- val x-shift) amplitude))
-                                   period))) 100.0)))
+          :deg (str "-" (deg (inverse-trig-fn (/ (- val x-shift) amplitude))) "^\\circ")
+          :rad (str "-" (inverse-trig-fn (/ (- val x-shift) amplitude))))
         "\\sin"
         (case mode
-          :deg
-          (/ (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude))))
-             period)
-          :rad
-(/ (- -180 (inverse-trig-fn (/ (- val x-shift) amplitude)))
-   period)))
-      "^\\circ+n\\cdot"
-      (/ 360 period)
-      "^\\circ\\end{aligned}")))
+          :deg (str (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude))))
+                    "^\\circ+n\\cdot360^\\circ}{")
+          :rad  (str (round (- pi (inverse-trig-fn (/ (- val x-shift) amplitude))) 1000)
+                     "+n\\cdot2\\pi}{")))
+      period "}="
+      (case trig-fn
+        "\\cos"
+        (case mode
+          :deg (str "-"  (/ (Math/round (* 100 (/ (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))
+                                             period))) 100.0))
+          :rad (str "-"  (/ (Math/round (* 100 (/ (inverse-trig-fn (/ (- val x-shift) amplitude))
+                                             period))) 100.0)))
+        "\\sin"
+        (case mode
+          :deg (str (/ (- -180 (deg (inverse-trig-fn (/ (- val x-shift) amplitude)))) period)
+                    "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
+          :rad (str (round (/ (- pi (inverse-trig-fn (/ (- val x-shift) amplitude))) period) 1000)
+                    "+n\\cdot\\dfrac{2\\pi}{" period "}")))
+      "\\end{aligned}")))
