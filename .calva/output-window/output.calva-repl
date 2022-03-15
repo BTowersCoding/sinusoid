@@ -619,3 +619,16 @@ nil
 clj꞉notebooks.sinusoid꞉> 
 "\\dfrac{\\pi}{2}"
 clj꞉notebooks.sinusoid꞉> 
+0.314
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (IllegalStateException) at notebooks.sinusoid/eval53063$loading (REPL:1).
+; ratio already refers to: #'sinusoid.ratio/ratio in namespace: notebooks.sinusoid
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (IllegalStateException) at notebooks.sinusoid/eval53291$loading (REPL:1).
+; ratio already refers to: #'sinusoid.ratio/ratio in namespace: notebooks.sinusoid
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (IllegalStateException) at notebooks.sinusoid/eval53409$loading (REPL:1).
+; fractions-of-pi already refers to: #'sinusoid.ratio/fractions-of-pi in namespace: notebooks.sinusoid
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 

@@ -1,8 +1,16 @@
-(ns sinusoid.ratio)
+(ns sinusoid.math)
 
 ;; To render fractions we implement quick & dirty ratios,
 ;; so we can convert a decimal value to a TeX string.
 ;; There is `clojure.core/rationalize`, but we want it to work in cljs too. 
+
+(defn round [n d]
+  (double (/ (Math/round (* d n)) d)))
+
+(def pi Math/PI)
+
+(defn deg [rad]
+  (round (/ rad (/ pi 180)) 100))
 
 (defn gcd [a b]
   (if (zero? b)
