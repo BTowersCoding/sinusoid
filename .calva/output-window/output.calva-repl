@@ -495,3 +495,81 @@ clj꞉notebooks.sinusoid꞉> 
 clj꞉notebooks.sinusoid꞉> 
 1.1278852827212575
 clj꞉notebooks.sinusoid꞉> 
+25340
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/mode
+clj꞉notebooks.sinusoid꞉> 
+"Your answer should be in degrees rounded to the nearest hundredth."
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/pi
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/deg
+clj꞉notebooks.sinusoid꞉> 
+64.62
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/amplitude
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/trig-fn
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/trig-fn
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/period
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/x-shift
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/equals
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error reading source at (REPL:33:1).
+; EOF while reading
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "\\cos(\\theta)=\\cos(-\\theta)", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "\\cos(\\theta)=\\cos(\\theta+360\\degree)", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/inverse-trig-fn
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value
+              "\\begin{aligned}7\\cos(5x)+9&=12\\\\\\\\ 7\\cos(5x)&=3\\\\\\\\ \\cos(5x)&=\\dfrac{3}{7}\\end{aligned}",
+              :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "\\cos^{-1}\\left(\\dfrac{3}{7}\\right)=64.62^\\circ", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value
+              "\\begin{aligned}5x&=-64.62^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-64.62^\\circ+n\\cdot360^\\circ}{5}=-12.92^\\circ+n\\cdot72^\\circ\\end{aligned}",
+              :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "\\cos(\\theta)=\\cos(-\\theta)", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+; Evaluating file: sinusoid.clj
+; Syntax error compiling at (C:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:1:1).
+; Unable to resolve symbol: ​ in this context
+; Evaluation of file sinusoid.clj failed: class clojure.lang.Compiler$CompilerException
+#:nextjournal{:value
+              "\\begin{aligned}5x&=64.62^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{64.62^\\circ+n\\cdot360^\\circ}{5}=12.92^\\circ+n\\cdot72^\\circ\\end{aligned}",
+              :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "-64.62 ^\\circ", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/mode
+clj꞉notebooks.sinusoid꞉> 
+"Your answer should be in degrees rounded to the nearest hundredth."
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:0:0).
+; Unable to resolve symbol: ​ in this context
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:0:0).
+; Unable to resolve symbol: ​ in this context
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:0:0).
+; Unable to resolve symbol: ​ in this context
+clj꞉notebooks.sinusoid꞉> 
+3.141592653589793
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/pi
+clj꞉notebooks.sinusoid꞉> 
