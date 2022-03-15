@@ -573,3 +573,39 @@ clj꞉notebooks.sinusoid꞉> 
 clj꞉notebooks.sinusoid꞉> 
 #'notebooks.sinusoid/pi
 clj꞉notebooks.sinusoid꞉> 
+1.5707963267948966
+clj꞉notebooks.sinusoid꞉> 
+90.0
+clj꞉notebooks.sinusoid꞉> 
+"-90.0 ^\\circ"
+clj꞉notebooks.sinusoid꞉> 
+"-90.0 ^\\circ"
+clj꞉notebooks.sinusoid꞉> 
+"-90.0 ^\\circ"
+clj꞉notebooks.sinusoid꞉> 
+"180^\\circ-90.0 ^\\circ=90.0"
+clj꞉notebooks.sinusoid꞉> 
+0
+clj꞉notebooks.sinusoid꞉> 
+1.5707963267948966
+clj꞉notebooks.sinusoid꞉> 
+90.0
+clj꞉notebooks.sinusoid꞉> 
+"-90.0 ^\\circ"
+clj꞉notebooks.sinusoid꞉> 
+#:nextjournal{:value "-90.0 ^\\circ", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+"\\cos"
+clj꞉notebooks.sinusoid꞉> 
+11.844444444444443
+clj꞉notebooks.sinusoid꞉> 
+8.16
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/round
+clj꞉notebooks.sinusoid꞉> 
+6/25
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/round
+clj꞉notebooks.sinusoid꞉> 
+0.24
+clj꞉notebooks.sinusoid꞉> 
