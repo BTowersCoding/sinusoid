@@ -1,44 +1,54 @@
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
 (ns notebooks.sinusoid
-  (:require [nextjournal.clerk :as clerk]))
+  (:require [nextjournal.clerk :as clerk]
+            [sinusoid.ratio :refer [ratio]]))
 
-;; To render fractions we implement quick & dirty ratios,
-;; so we can convert a decimal value to a TeX string:
+;; ## [Solve sinusoidal equations](https://www.khanacademy.org/math/trigonometry/trig-equations-and-identities/xfefa5515:sinusoidal-equations/e/solve-advanced-sinusoidal-equations)
 
-(defn gcd [a b]
-  (if (zero? b)
-    a
-    (recur b (mod a b))))
+;; Find the solutions to the equation. Your answer should be in degrees. Assume $n$ is any integer.
 
-(defn ratios 
-  "Builds a map of decimal values to their ratios as vectors
-   using numerators and denominators from 1 to `end`."
-  [end]
-  (let [nums (for [n (range 1 end)
-                   d (range 1 end)
-                   :when (= 1 (gcd n d))]
-               [n d])]
-    (into {} (reverse (map (fn [[n d]] [(/ n d) [n d]])
-                           nums)))))
+;; $7\cos(5x)+9=12$
 
-(defn ratio 
-  "Takes a decimal value and outputs a TeX string represesenting its ratio,
-   or itself if no equivalent integer ratio exists."
-  [dec]
-  (let [[n d] (get (ratios 10) dec)]
-    (if (and n d)
-      (str "\\dfrac{" n "}{" d "}")
-      dec)))
+(def pi Math/PI)
 
-;; Now we can start the trig lesson:
+(defn deg [rad]
+  (/ (Math/round (* 100 (/ rad (/ pi 180)))) 100.0))
 
-(let [amplitude 7 trig-fn "\\cos" period 5 x-shift 9
-      equals 12]
-  (clerk/tex (str "\\begin{aligned}" amplitude trig-fn
-                  "(" period "x)+" x-shift "&=" equals "\\\\\\\\ "
-                  amplitude trig-fn "(" period "x)&=" (- equals x-shift) "\\\\\\\\ "
-                  trig-fn "(" period "x)&=" (ratio (/ (- equals x-shift) amplitude)) "\\end{aligned}")))
+(deg (Math/acos (/ 3 7)))
+
+(def amplitude 7)
+(def trig-fn "\\cos")
+(def period 5)
+(def x-shift 9)
+(def equals 12)
+
+(defn inverse-trig-fn [n]
+  (case trig-fn
+   "\\cos" (Math/acos n)))
+
+;; Isolate the sinusoidal function
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(let [period 7]
-  (clerk/tex (str "\\cos^{-1}\\left(\\dfrac{3}{7}\\right)=64.62^\\circ")))
+(clerk/tex
+ (str "\\begin{aligned}"
+      amplitude trig-fn "(" period "x)+" x-shift "&=" equals "\\\\\\\\ "
+      amplitude trig-fn "(" period "x)&=" (- equals x-shift) "\\\\\\\\ "
+      trig-fn "(" period "x)&=" (ratio (/ (- equals x-shift) amplitude))
+      "\\end{aligned}"))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(clerk/tex
+ (str trig-fn "^{-1}\\left(" (ratio (/ (- equals x-shift) amplitude)) "\\right)="
+                  (deg (inverse-trig-fn (/ (- equals x-shift) amplitude))) "^\\circ"))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(clerk/tex
+ (str
+  "\\begin{aligned}5x&=64.62^\\circ+n\\cdot360^\\circ \\\\\\\\"
+  "x&=\\dfrac{64.62^\\circ+n\\cdot360^\\circ}{5}=12.92^\\circ+n\\cdot72^\\circ\\end{aligned}"))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(clerk/tex 
+ (str
+  "\\begin{aligned}5x&=-64.62^\\circ+n\\cdot360^\\circ \\\\\\\\"
+  "x&=\\dfrac{-64.62^\\circ+n\\cdot360^\\circ}{5}=-12.92^\\circ+n\\cdot72^\\circ\\end{aligned}"))

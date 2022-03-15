@@ -100,3 +100,398 @@ clj꞉notebooks.sinusoid꞉> 
 clj꞉notebooks.sinusoid꞉> 
 "\\dfrac{8}{1}"
 clj꞉notebooks.sinusoid꞉> 
+; Syntax error reading source at (REPL:33:17).
+; Invalid token: /3
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+3
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571/20000000000000000
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571
+clj꞉notebooks.sinusoid꞉> 
+3
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571/20000000000000000
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+{9/8 [9 8],
+ 8/9 [8 9],
+ 7/6 [7 6],
+ 6/7 [6 7],
+ 5/4 [5 4],
+ 4/5 [4 5],
+ 3/2 [3 2],
+ 2/3 [2 3],
+ 7/5 [7 5],
+ 5/7 [5 7],
+ 1/3 [1 3],
+ 7/4 [7 4],
+ 6/5 [6 5],
+ 5/6 [5 6],
+ 4/7 [4 7],
+ 1/2 [1 2],
+ 7 [7 1],
+ 7/3 [7 3],
+ 3/7 [3 7],
+ 1/5 [1 5],
+ 1 [1 1],
+ 7/2 [7 2],
+ 2/7 [2 7],
+ 1/4 [1 4],
+ 5/3 [5 3],
+ 3/5 [3 5],
+ 1/7 [1 7],
+ 4 [4 1],
+ 5/2 [5 2],
+ 4/3 [4 3],
+ 3/4 [3 4],
+ 2/5 [2 5],
+ 1/6 [1 6],
+ 1/9 [1 9],
+ 1/8 [1 8],
+ 9/2 [9 2],
+ 8/3 [8 3],
+ 3/8 [3 8],
+ 2/9 [2 9],
+ 9/5 [9 5],
+ 5/9 [5 9],
+ 9/4 [9 4],
+ 8/5 [8 5],
+ 5/8 [5 8],
+ 4/9 [4 9],
+ 9/7 [9 7],
+ 7/9 [7 9],
+ 8/7 [8 7],
+ 7/8 [7 8],
+ 6 [6 1],
+ ...}
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571/20000000000000000
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+"\\dfrac{3}{7}"
+clj꞉notebooks.sinusoid꞉> 
+0.42857142857142855
+clj꞉notebooks.sinusoid꞉> 
+false
+clj꞉notebooks.sinusoid꞉> 
+false
+clj꞉notebooks.sinusoid꞉> 
+-5.551115123125783E-17
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/very-close?
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+; Error printing return value (ClassCastException) at clojure.lang.Numbers/minus (Numbers.java:162).
+; class clojure.lang.MapEntry cannot be cast to class java.lang.Number (clojure.lang.MapEntry is in unnamed module of loader 'app'; java.lang.Number is in module java.base of loader 'bootstrap')
+clj꞉notebooks.sinusoid꞉> 
+{9/8 [9 8],
+ 8/9 [8 9],
+ 7/6 [7 6],
+ 6/7 [6 7],
+ 5/4 [5 4],
+ 4/5 [4 5],
+ 3/2 [3 2],
+ 2/3 [2 3],
+ 7/5 [7 5],
+ 5/7 [5 7],
+ 1/3 [1 3],
+ 7/4 [7 4],
+ 6/5 [6 5],
+ 5/6 [5 6],
+ 4/7 [4 7],
+ 1/2 [1 2],
+ 7 [7 1],
+ 7/3 [7 3],
+ 3/7 [3 7],
+ 1/5 [1 5],
+ 1 [1 1],
+ 7/2 [7 2],
+ 2/7 [2 7],
+ 1/4 [1 4],
+ 5/3 [5 3],
+ 3/5 [3 5],
+ 1/7 [1 7],
+ 4 [4 1],
+ 5/2 [5 2],
+ 4/3 [4 3],
+ 3/4 [3 4],
+ 2/5 [2 5],
+ 1/6 [1 6],
+ 1/9 [1 9],
+ 1/8 [1 8],
+ 9/2 [9 2],
+ 8/3 [8 3],
+ 3/8 [3 8],
+ 2/9 [2 9],
+ 9/5 [9 5],
+ 5/9 [5 9],
+ 9/4 [9 4],
+ 8/5 [8 5],
+ 5/8 [5 8],
+ 4/9 [4 9],
+ 9/7 [9 7],
+ 7/9 [7 9],
+ 8/7 [8 7],
+ 7/8 [7 8],
+ 6 [6 1],
+ ...}
+clj꞉notebooks.sinusoid꞉> 
+(3/7)
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+(3/7)
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (ArityException) at notebooks.sinusoid/rat (REPL:39).
+; Wrong number of args (2) passed to: clojure.core/some?
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+8571428571428571
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (NullPointerException) at notebooks.sinusoid/eval24511 (REPL:40).
+; Cannot read field "numerator" because "r" is null
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (ClassCastException) at notebooks.sinusoid/eval24552 (REPL:40).
+; class java.lang.Double cannot be cast to class clojure.lang.Ratio (java.lang.Double is in module java.base of loader 'bootstrap'; clojure.lang.Ratio is in unnamed module of loader 'app')
+clj꞉notebooks.sinusoid꞉> 
+0.4428571428571429
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+3/7
+clj꞉notebooks.sinusoid꞉> 
+0.4428571428571429
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/rat
+clj꞉notebooks.sinusoid꞉> 
+; Execution error (ClassCastException) at notebooks.sinusoid/eval24583 (REPL:41).
+; class java.lang.Double cannot be cast to class clojure.lang.Ratio (java.lang.Double is in module java.base of loader 'bootstrap'; clojure.lang.Ratio is in unnamed module of loader 'app')
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+; Syntax error compiling at (c:\Users\porko\Documents\GitHub\sinusoid\notebooks\sinusoid.clj:50:1).
+; Unable to resolve symbol: deg in this context
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/pi
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/deg
+clj꞉notebooks.sinusoid꞉> 
+64.62306647484769
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/deg
+clj꞉notebooks.sinusoid꞉> 
+65
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/deg
+clj꞉notebooks.sinusoid꞉> 
+3231/50
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/deg
+clj꞉notebooks.sinusoid꞉> 
+64.62
+clj꞉notebooks.sinusoid꞉> 
+{9/8 [9 8],
+ 8/9 [8 9],
+ 7/6 [7 6],
+ 6/7 [6 7],
+ 5/4 [5 4],
+ 4/5 [4 5],
+ 3/2 [3 2],
+ 2/3 [2 3],
+ 7/5 [7 5],
+ 5/7 [5 7],
+ 1/3 [1 3],
+ 7/4 [7 4],
+ 6/5 [6 5],
+ 5/6 [5 6],
+ 4/7 [4 7],
+ 1/2 [1 2],
+ 7 [7 1],
+ 7/3 [7 3],
+ 3/7 [3 7],
+ 1/5 [1 5],
+ 1 [1 1],
+ 7/2 [7 2],
+ 2/7 [2 7],
+ 1/4 [1 4],
+ 5/3 [5 3],
+ 3/5 [3 5],
+ 1/7 [1 7],
+ 4 [4 1],
+ 5/2 [5 2],
+ 4/3 [4 3],
+ 3/4 [3 4],
+ 2/5 [2 5],
+ 1/6 [1 6],
+ 1/9 [1 9],
+ 1/8 [1 8],
+ 9/2 [9 2],
+ 8/3 [8 3],
+ 3/8 [3 8],
+ 2/9 [2 9],
+ 9/5 [9 5],
+ 5/9 [5 9],
+ 9/4 [9 4],
+ 8/5 [8 5],
+ 5/8 [5 8],
+ 4/9 [4 9],
+ 9/7 [9 7],
+ 7/9 [7 9],
+ 8/7 [8 7],
+ 7/8 [7 8],
+ 6 [6 1],
+ ...}
+clj꞉notebooks.sinusoid꞉> 
+100
+clj꞉notebooks.sinusoid꞉> 
+{99/67 [99 67],
+ 97/65 [97 65],
+ 67/99 [67 99],
+ 65/97 [65 97],
+ 63/31 [63 31],
+ 61/29 [61 29],
+ 59/27 [59 27],
+ 57/25 [57 25],
+ 55/23 [55 23],
+ 53/21 [53 21],
+ 51/19 [51 19],
+ 49/17 [49 17],
+ 47/15 [47 15],
+ 45/13 [45 13],
+ 43/11 [43 11],
+ 41/9 [41 9],
+ 39/7 [39 7],
+ 37/5 [37 5],
+ 35/3 [35 3],
+ 31/63 [31 63],
+ 29/61 [29 61],
+ 27/59 [27 59],
+ 25/57 [25 57],
+ 23/55 [23 55],
+ 21/53 [21 53],
+ 19/51 [19 51],
+ 17/49 [17 49],
+ 15/47 [15 47],
+ 13/45 [13 45],
+ 11/43 [11 43],
+ 9/41 [9 41],
+ 7/39 [7 39],
+ 5/37 [5 37],
+ 3/35 [3 35],
+ 1/33 [1 33],
+ 99/35 [99 35],
+ 97/33 [97 33],
+ 95/31 [95 31],
+ 93/29 [93 29],
+ 91/27 [91 27],
+ 89/25 [89 25],
+ 87/23 [87 23],
+ 85/21 [85 21],
+ 83/19 [83 19],
+ 81/17 [81 17],
+ 79/15 [79 15],
+ 77/13 [77 13],
+ 75/11 [75 11],
+ 73/9 [73 9],
+ 71/7 [71 7],
+ ...}
+clj꞉notebooks.sinusoid꞉> 
+[3 7]
+clj꞉notebooks.sinusoid꞉> 
+1.1278852827212575
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/inverse-trig-fn
+clj꞉notebooks.sinusoid꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/inverse-trig-fn
+clj꞉notebooks.sinusoid꞉> 
+#function[notebooks.sinusoid/inverse-trig-fn/fn--28443]
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/inverse-trig-fn
+clj꞉notebooks.sinusoid꞉> 
+1.1278852827212575
+clj꞉notebooks.sinusoid꞉> 
+1.1278852827212575
+clj꞉notebooks.sinusoid꞉> 
