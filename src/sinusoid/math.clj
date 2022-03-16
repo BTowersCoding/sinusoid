@@ -52,11 +52,15 @@
                             (reverse (map (juxt (fn [n] (/ Math/PI n))
                                                 (fn [n]
                                                   (str "\\dfrac{\\pi}{" n "}")))
-                                          (range 2 1000))))]
-    (assoc simple-ratios Math/PI "\\pi"))
-  )
+                                          (range 2 1000))))
+        fractions-of-2pi (into {}
+                               (reverse (map (juxt (fn [n] (/ (* 2 pi) n))
+                                                   (fn [n]
+                                                     (str "\\dfrac{2\\pi}{" n "}")))
+                                             (range 2 1000))))]
+    (merge fractions-of-2pi (assoc simple-ratios Math/PI "\\pi"))))
 
-(get fractions-of-pi Math/PI)
+(get fractions-of-pi (/ pi 24))
 
 (comment
   ((juxt numerator denominator)
