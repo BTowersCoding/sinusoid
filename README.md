@@ -8,4 +8,4 @@ Evaluate `src\sinusoid\sinusoid.clj`.
 
 A webserver will start and browser will open.
 
-Save `notebooks\sinusoid.clj` if it is not open  already.
+Touch `notebooks\sinusoid.clj` to nudge the file watcher if it is not open already.
