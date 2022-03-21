@@ -9,3 +9,7 @@ Evaluate `src\sinusoid\sinusoid.clj`.
 A webserver will start and browser will open.
 
 Touch `notebooks\sinusoid.clj` to nudge the file watcher if it is not open already.
+
+## TODO
+
+Build test suite based on the examples in the course.
