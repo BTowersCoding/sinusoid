@@ -1,4 +1,4 @@
 .clerk/cache
 .cpcache
-.clj-kondo/.cache
+.clj-kondo/
 .lsp/.cache

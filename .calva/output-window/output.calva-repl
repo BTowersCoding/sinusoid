@@ -20,13 +20,18 @@ clj꞉user꞉>  ; Use `alt+enter` to evaluate
 clj꞉user꞉> 
 ; Evaluating file: sinusoid.clj
 Clerk webserver started on 7777...
-Clerk evaluated 'notebooks/sinusoid.clj' in 3212.9164ms.
+; Syntax error (IllegalAccessError) compiling at (c:\Users\porko\Documents\GitHub\sinusoid\src\sinusoid\sinusoid.clj:6:1).
+; pi does not exist
+; Evaluation of file sinusoid.clj failed: class clojure.lang.Compiler$CompilerException
+; Evaluating file: math.clj
+nil
+clj꞉sinusoid.math꞉> 
+; Evaluating file: sinusoid.clj
+Webserver running on 7777, stopped.
+Clerk webserver started on 7777...
+Clerk evaluated 'notebooks/sinusoid.clj' in 2756.0019ms.
 Webserver running on 7777, stopped.
 Clerk webserver started on 7777...
 Starting new watcher for paths ["notebooks" "src"]
 {:watch-paths ["notebooks" "src"]}
 clj꞉sinusoid꞉> 
-#:nextjournal{:value
-              "\\begin{aligned}15x&=-1.955+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{-1.955+n\\cdot2\\pi}{15}=-0.13+n\\cdot\\dfrac{2\\pi}{15}\\end{aligned}",
-              :viewer :latex}
-clj꞉notebooks.sinusoid꞉> 
