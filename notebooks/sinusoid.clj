@@ -10,7 +10,7 @@
 ;; Derive one or more expressions that together represent all solutions to the equation. 
 ;; Assume $n$ is any integer.
 
-(def mode :rad)
+(def mode :deg)
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (case mode
@@ -18,11 +18,7 @@
   :rad (clerk/html "Your answer should be in radians."))
 
 (def sinusoid
-  {:amplitude 13
-   :trig-fn "\\sin"
-   :period 2
-   :x-shift -3
-   :val 3})
+  {:amplitude 8, :trig-fn "\\cos", :period 12, :x-shift 4, :val -4})
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (let [{:keys [amplitude trig-fn period x-shift val]} sinusoid]
@@ -53,8 +49,8 @@
           "\\sin" "\\sin(\\theta)=\\sin(\\theta+2\\pi)")))
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(defn inverse-trig-fn [n]
-  (case (:trig-fn sinusoid)
+(defn inverse-trig-fn [f n]
+  (case f
     "\\cos" (Math/acos n)
     "\\sin" (Math/asin n)))
 
@@ -75,7 +71,7 @@
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (let [{:keys [amplitude trig-fn x-shift val]} sinusoid
-      v (inverse-trig-fn (/ (- val x-shift) amplitude))]
+      v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
   (clerk/tex
    (str trig-fn "^{-1}\\left(" 
         (math/ratio (/ (- val x-shift) amplitude)) "\\right)="
@@ -104,7 +100,7 @@
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (let [{:keys [amplitude trig-fn x-shift val]} sinusoid
-      v (inverse-trig-fn (/ (- val x-shift) amplitude))]
+      v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
   (when-not (or (= -1  (/ (- val x-shift) amplitude))
                 (= 1  (/ (- val x-shift) amplitude)))
     (clerk/tex
@@ -134,32 +130,50 @@
                  The first solution gives us the following:")))
 
 ^{:nextjournal.clerk/visibility #{:hide}}
-(let [{:keys [amplitude period x-shift val]} sinusoid
-      v (inverse-trig-fn (/ (- val x-shift) amplitude))]
-  (clerk/tex
-   (str "\\begin{aligned}" period "x&="
-        (case mode
-          :deg (str (deg v) "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{" 
-                    (deg v) "^\\circ+n\\cdot360^\\circ}{" period "}="
-                    (round (/ (deg v) period) 100)
-                    "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
-          :rad (str (or (last (first (filter (fn [[d _]]
-                                               (> 0.000001 (Math/abs (- d v))))
-                                             math/fractions-of-pi)))
-                        (round v 1000))
-                    "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
-                    (or (last (first (filter (fn [[d _]]
-                                               (> 0.000001 (Math/abs (- d v))))
-                                             math/fractions-of-pi)))
-                        (round v 1000)) 
-                    "+n\\cdot2\\pi}{" period "}="
-                    (when (neg? (/ v period)) "-")
-                    (or (last (first (filter (fn [[d _]]
-                                               (> 0.000001 (Math/abs (- d (/ v period)))))
-                                             math/fractions-of-pi)))
-                        (round (/ v period) 1000)) 
-                    "+n\\cdot\\dfrac{2\\pi}{" period "}"))
-        "\\end{aligned}")))
+(defn solution1-deg [m]
+  (let [{:keys [amplitude trig-fn period x-shift val]} m
+        v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (str "\\begin{aligned}" period "x&="
+         (deg v) "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{"
+         (deg v) "^\\circ+n\\cdot360^\\circ}{" period "}="
+         (round (/ (deg v) period) 100)
+         "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
+         "\\end{aligned}")))
+
+(comment 
+  (solution1-deg {:amplitude 8, :trig-fn "\\cos", :period 12, :x-shift 4, :val -4})
+  )
+
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(defn solution1-rad [m]
+  (let
+   [{:keys [amplitude trig-fn period x-shift val]} m
+    v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (str "\\begin{aligned}" period "x&="
+         (or (last (first (filter (fn [[d _]]
+                                    (> 0.000001 (Math/abs (- d v))))
+                                  math/fractions-of-pi)))
+             (round v 1000))
+         "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
+         (or (last (first (filter (fn [[d _]]
+                                    (> 0.000001 (Math/abs (- d v))))
+                                  math/fractions-of-pi)))
+             (round v 1000))
+         "+n\\cdot2\\pi}{" period "}="
+         (when (neg? (/ v period)) "-")
+         (or (last (first (filter (fn [[d _]]
+                                    (> 0.000001 (Math/abs (- d (/ v period)))))
+                                  math/fractions-of-pi)))
+             (round (/ v period) 1000))
+         "+n\\cdot\\dfrac{2\\pi}{" period "}"
+         "\\end{aligned}")))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(clerk/tex
+ (case mode
+   :deg (solution1-deg sinusoid)
+   :rad (solution1-rad sinusoid)))
 
 ^{:nextjournal.clerk/visibility #{:hide}}
 (let [{:keys [amplitude x-shift val]} sinusoid]
@@ -167,48 +181,82 @@
                 (= 1  (/ (- val x-shift) amplitude)))
     (clerk/html "Similarly, the second solution gives us the following:")))
 
-^{::clerk/no-cache true :nextjournal.clerk/visibility #{:hide}}
-(let [{:keys [amplitude trig-fn period x-shift val]} sinusoid
-      v (inverse-trig-fn (/ (- val x-shift) amplitude))]
-  (when-not (or (= -1  (/ (- val x-shift) amplitude))
-                (= 1  (/ (- val x-shift) amplitude)))
-    (clerk/tex
-     (str "\\begin{aligned}" period "x&="
-          (case trig-fn
-            "\\cos"
-            (case mode
-              :deg (str "-" (deg v) "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{"
-                        "-" (deg v) "^\\circ+n\\cdot360^\\circ}{" period "}="
-                        "-" (round (/ (deg v) period) 100) 
-                        "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
-              :rad (str "-" (or (last (first (filter (fn [[d _]]
-                                                       (> 0.000001 (Math/abs (- d v))))
-                                                     math/fractions-of-pi)))
-                                (round v 1000))
-                        "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
-                        "-" (or (last (first (filter (fn [[d _]]
-                                                       (> 0.000001 (Math/abs (- d v))))
-                                                     math/fractions-of-pi)))
-                                (round v 1000))
-                        "+n\\cdot2\\pi}{" period "}="
-                        "-"
-                        (or (last (first (filter (fn [[d _]]
-                                                   (> 0.000001 (Math/abs (- d (/ v period)))))
-                                                 math/fractions-of-pi)))
-                            (round (/ v period) 1000))
-                        "+n\\cdot\\dfrac{2\\pi}{" period "}"))
-            "\\sin"
-            (case mode
-              :deg (str (- 180 (deg v)) 
-                        "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{"
-                        (- 180 (deg v)) "^\\circ+n\\cdot360^\\circ}{" period "}="
-                        (round (/ (- 180 (deg v)) period) 100) 
-                        "^\\circ+n\\cdot" (/ 360 period) "^\\circ")
-              :rad (str (round (- pi v) 1000) "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
-                        (round (- pi v) 1000) "+n\\cdot2\\pi}{" period "}="
-                        (or (last (first (filter (fn [[d _]]
-                                                   (> 0.000001 (Math/abs (- d (/ (- pi v) period)))))
-                                                 math/fractions-of-pi)))
-                            (round (/ (- pi v) period) 1000))
-                        "+n\\cdot\\dfrac{2\\pi}{" period "}")))
-          "\\end{aligned}"))))
+^{:nextjournal.clerk/visibility #{:hide}}
+(defn solution2-sin-deg [m]
+  (let [{:keys [amplitude trig-fn period x-shift val]} m
+        v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (when-not (or (= -1  (/ (- val x-shift) amplitude))
+                  (= 1  (/ (- val x-shift) amplitude)))
+       (str "\\begin{aligned}" period "x&="
+            (- 180 (deg v))
+            "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{"
+            (- 180 (deg v)) "^\\circ+n\\cdot360^\\circ}{" period "}="
+            (round (/ (- 180 (deg v)) period) 100)
+            "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
+            "\\end{aligned}"))))
+
+  ^{:nextjournal.clerk/visibility #{:hide}}
+(defn solution2-sin-rad [m]
+  (let [{:keys [amplitude trig-fn period x-shift val]} m
+        v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (when-not (or (= -1  (/ (- val x-shift) amplitude))
+                  (= 1  (/ (- val x-shift) amplitude)))
+       (str "\\begin{aligned}" period "x&="
+            (round (- pi v) 1000) "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
+            (round (- pi v) 1000) "+n\\cdot2\\pi}{" period "}="
+            (or (last (first (filter (fn [[d _]]
+                                       (> 0.000001 (Math/abs (- d (/ (- pi v) period)))))
+                                     math/fractions-of-pi)))
+                (round (/ (- pi v) period) 1000))
+            "+n\\cdot\\dfrac{2\\pi}{" period "}"
+            "\\end{aligned}"))))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(defn solution2-cos-deg [m]
+  (let [{:keys [amplitude trig-fn period x-shift val]} m
+        v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (when-not (or (= -1  (/ (- val x-shift) amplitude))
+                  (= 1  (/ (- val x-shift) amplitude)))
+       (str "\\begin{aligned}" period "x&="
+            "-" (deg v) "^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{"
+            "-" (deg v) "^\\circ+n\\cdot360^\\circ}{" period "}="
+            "-" (round (/ (deg v) period) 100)
+            "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
+            "\\end{aligned}"))))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(defn solution2-cos-rad [m]
+  (let [{:keys [amplitude trig-fn period x-shift val]} m
+        v (inverse-trig-fn trig-fn (/ (- val x-shift) amplitude))]
+    (when-not (or (= -1  (/ (- val x-shift) amplitude))
+                  (= 1  (/ (- val x-shift) amplitude)))
+       (str "\\begin{aligned}" period "x&="
+            "-" (or (last (first (filter (fn [[d _]]
+                                           (> 0.000001 (Math/abs (- d v))))
+                                         math/fractions-of-pi)))
+                    (round v 1000))
+            "+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{"
+            "-" (or (last (first (filter (fn [[d _]]
+                                           (> 0.000001 (Math/abs (- d v))))
+                                         math/fractions-of-pi)))
+                    (round v 1000))
+            "+n\\cdot2\\pi}{" period "}="
+            "-"
+            (or (last (first (filter (fn [[d _]]
+                                       (> 0.000001 (Math/abs (- d (/ v period)))))
+                                     math/fractions-of-pi)))
+                (round (/ v period) 1000))
+            "+n\\cdot\\dfrac{2\\pi}{" period "}"
+            "\\end{aligned}"))))
+
+^{:nextjournal.clerk/visibility #{:hide}}
+(clerk/tex
+ (case (:trig-fn sinusoid)
+   "\\cos"
+   (case mode
+     :deg (solution2-cos-deg sinusoid)
+     :rad (solution2-cos-rad sinusoid))
+   "\\sin"
+   (case mode
+     :deg (solution2-sin-deg sinusoid)
+     :rad (solution2-sin-rad sinusoid))))
