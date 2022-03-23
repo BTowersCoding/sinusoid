@@ -420,3 +420,171 @@ Ran 3 tests containing 3 assertions.
 0 failures, 0 errors.
 {:test 3, :pass 3, :fail 0, :error 0, :type :summary}
 clj꞉sinusoid-test꞉> 
+; Evaluating file: sinusoid.clj
+#:nextjournal{:value "\\begin{aligned}4x&=210.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{210.0^\\circ+n\\cdot360^\\circ}{4}=52.5^\\circ+n\\cdot90^\\circ\\end{aligned}", :viewer :latex}
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}12x&=180.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{180.0^\\circ+n\\cdot360^\\circ}{12}=15.0^\\circ+n\\cdot30^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=-30.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-30.0^\\circ+n\\cdot360^\\circ}{4}=-7.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=210.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{210.0^\\circ+n\\cdot360^\\circ}{4}=52.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=-30.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-30.0^\\circ+n\\cdot360^\\circ}{4}=-7.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/solution2-sin-deg
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=-30.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-30.0^\\circ+n\\cdot360^\\circ}{4}=-7.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/solution2-sin-deg
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=330.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{330.0^\\circ+n\\cdot360^\\circ}{4}=82.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'notebooks.sinusoid/solution2-sin-deg
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}4x&=-150.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-150.0^\\circ+n\\cdot360^\\circ}{4}=-37.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution2-sin-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+FAIL in (solution2-sin-degrees-test) (NO_SOURCE_FILE:33)
+expected: (= (notebooks.sinusoid/solution2-sin-deg {:amplitude 2, :trig-fn "\\sin", :period 4, :x-shift 6, :val 5}) "\\begin{aligned}2x&=2.662+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{2.662+n\\cdot2\\pi}{2}=1.331+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}")
+  actual: (not (= "\\begin{aligned}4x&=-150.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-150.0^\\circ+n\\cdot360^\\circ}{4}=-37.5^\\circ+n\\cdot90^\\circ\\end{aligned}" "\\begin{aligned}2x&=2.662+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{2.662+n\\cdot2\\pi}{2}=1.331+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}"))
+
+Ran 4 tests containing 4 assertions.
+1 failures, 0 errors.
+{:test 4, :pass 3, :fail 1, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+#'sinusoid-test/solution2-sin-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 4 tests containing 4 assertions.
+0 failures, 0 errors.
+{:test 4, :pass 4, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+"\\begin{aligned}4x&=-30.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-30.0^\\circ+n\\cdot360^\\circ}{4}=-7.5^\\circ+n\\cdot90^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution1-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 4 tests containing 5 assertions.
+0 failures, 0 errors.
+{:test 4, :pass 5, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+#'notebooks.sinusoid/sinusoid
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}6x&=53.13^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{53.13^\\circ+n\\cdot360^\\circ}{6}=8.86^\\circ+n\\cdot60^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}6x&=-53.13^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-53.13^\\circ+n\\cdot360^\\circ}{6}=-8.86^\\circ+n\\cdot60^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution2-cos-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 5 tests containing 6 assertions.
+0 failures, 0 errors.
+{:test 5, :pass 6, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+nil
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}3x&=90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{90.0^\\circ+n\\cdot360^\\circ}{3}=30.0^\\circ+n\\cdot120^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}20x&=0.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{0.0^\\circ+n\\cdot360^\\circ}{20}=0.0^\\circ+n\\cdot18^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}20x&=0.0+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.0+n\\cdot2\\pi}{20}=0.0+n\\cdot\\dfrac{2\\pi}{20}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}20x&=3.142+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{3.142+n\\cdot2\\pi}{20}=\\dfrac{\\pi}{20}+n\\cdot\\dfrac{2\\pi}{20}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+true
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 5 tests containing 6 assertions.
+0 failures, 0 errors.
+{:test 5, :pass 6, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+#'sinusoid-test/solution2-sin-radians-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 6 tests containing 8 assertions.
+0 failures, 0 errors.
+{:test 6, :pass 8, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+"\\begin{aligned}20x&=0.0+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.0+n\\cdot2\\pi}{20}=0.0+n\\cdot\\dfrac{2\\pi}{20}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution1-radians-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+FAIL in (solution1-radians-test) (NO_SOURCE_FILE:13)
+expected: (= (notebooks.sinusoid/solution1-rad {:amplitude 6, :trig-fn "\\sin", :period 20, :x-shift 1, :val 1}) "\\begin{aligned}2x&=0.48+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.48+n\\cdot2\\pi}{2}=0.24+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}")
+  actual: (not (= "\\begin{aligned}20x&=0.0+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.0+n\\cdot2\\pi}{20}=0.0+n\\cdot\\dfrac{2\\pi}{20}\\end{aligned}" "\\begin{aligned}2x&=0.48+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.48+n\\cdot2\\pi}{2}=0.24+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}"))
+
+Ran 6 tests containing 9 assertions.
+1 failures, 0 errors.
+{:test 6, :pass 8, :fail 1, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+"\\begin{aligned}20x&=0.0+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.0+n\\cdot2\\pi}{20}=0.0+n\\cdot\\dfrac{2\\pi}{20}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution1-radians-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 6 tests containing 9 assertions.
+0 failures, 0 errors.
+{:test 6, :pass 9, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+"\\begin{aligned}10x&=90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{90.0^\\circ+n\\cdot360^\\circ}{10}=9.0^\\circ+n\\cdot36^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}10x&=-90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-90.0^\\circ+n\\cdot360^\\circ}{10}=-9.0^\\circ+n\\cdot36^\\circ\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution2-cos-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+FAIL in (solution2-cos-degrees-test) (NO_SOURCE_FILE:72)
+expected: (= (notebooks.sinusoid/solution2-cos-deg {:amplitude 4, :trig-fn "\\cos", :period 10, :x-shift 2, :val 2}) "\\begin{aligned}10x&=90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{90.0^\\circ+n\\cdot360^\\circ}{10}=9.0^\\circ+n\\cdot36^\\circ\\end{aligned}")
+  actual: (not (= "\\begin{aligned}10x&=-90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{-90.0^\\circ+n\\cdot360^\\circ}{10}=-9.0^\\circ+n\\cdot36^\\circ\\end{aligned}" "\\begin{aligned}10x&=90.0^\\circ+n\\cdot360^\\circ \\\\\\\\x&=\\dfrac{90.0^\\circ+n\\cdot360^\\circ}{10}=9.0^\\circ+n\\cdot36^\\circ\\end{aligned}"))
+
+Ran 6 tests containing 10 assertions.
+1 failures, 0 errors.
+{:test 6, :pass 9, :fail 1, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+#'sinusoid-test/solution2-cos-degrees-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 6 tests containing 10 assertions.
+0 failures, 0 errors.
+{:test 6, :pass 10, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
+"\\begin{aligned}2x&=2.662+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{2.662+n\\cdot2\\pi}{2}=1.331+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}2x&=0.48+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{0.48+n\\cdot2\\pi}{2}=0.24+n\\cdot\\dfrac{2\\pi}{2}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}8x&=-\\dfrac{\\pi}{3}+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{-\\dfrac{\\pi}{3}+n\\cdot2\\pi}{8}=-\\dfrac{\\pi}{24}+n\\cdot\\dfrac{2\\pi}{8}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+"\\begin{aligned}8x&=\\dfrac{\\pi}{3}+n\\cdot2\\pi \\\\\\\\x&=\\dfrac{\\dfrac{\\pi}{3}+n\\cdot2\\pi}{8}=\\dfrac{\\pi}{24}+n\\cdot\\dfrac{2\\pi}{8}\\end{aligned}"
+clj꞉notebooks.sinusoid꞉> 
+#'sinusoid-test/solution2-cos-radians-test
+clj꞉sinusoid-test꞉> 
+
+Testing sinusoid-test
+
+Ran 7 tests containing 11 assertions.
+0 failures, 0 errors.
+{:test 7, :pass 11, :fail 0, :error 0, :type :summary}
+clj꞉sinusoid-test꞉> 
