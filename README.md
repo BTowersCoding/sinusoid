@@ -10,6 +10,6 @@ A webserver will start and browser will open.
 
 Touch `notebooks\sinusoid.clj` to nudge the file watcher if it is not open already.
 
-## TODO
+## Tests
 
-Build test suite based on the examples in the course.
+See `test\sinusoid\sinusoid_test.clj`.
