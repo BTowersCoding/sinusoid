@@ -144,6 +144,7 @@
          "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
          "\\end{aligned}")))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution1-deg {:amplitude 8
                   :trig-fn   "\\cos"
@@ -201,6 +202,7 @@
          "+n\\cdot\\dfrac{2\\pi}{" period "}"
          "\\end{aligned}")))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution1-rad
    {:amplitude 6
@@ -248,6 +250,7 @@
            "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
            "\\end{aligned}"))))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution2-sin-deg {:amplitude 2
                       :trig-fn   "\\sin"
@@ -276,6 +279,7 @@
            "+n\\cdot\\dfrac{2\\pi}{" period "}"
            "\\end{aligned}"))))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution2-sin-rad
    {:amplitude 6
@@ -305,6 +309,7 @@
            "^\\circ+n\\cdot" (/ 360 period) "^\\circ"
            "\\end{aligned}"))))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution2-cos-deg {:amplitude 5
                       :trig-fn   "\\cos"
@@ -344,6 +349,7 @@
            "+n\\cdot\\dfrac{2\\pi}{" period "}"
            "\\end{aligned}"))))
 
+^{:nextjournal.clerk/visibility #{:hide}}
 (comment
   (solution2-cos-rad
    {:amplitude 16

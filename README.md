@@ -4,7 +4,7 @@ Lessons in Trigonometry in Clojure using [Khan Academy](https://www.khanacademy.
 
 ## Running
 
-Evaluate `src\sinusoid\sinusoid.clj`.
+Start a REPL and evaluate `src\sinusoid\sinusoid.clj`.
 
 A webserver will start and browser will open.
 
